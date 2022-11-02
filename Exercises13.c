@@ -31,31 +31,30 @@ int main() {
             continue;
         } else if(width == 1) {
             for(int i = 1; i <= height; i++) {
-                printf("%3d\n", start++);
+                printf("%3d\n", start + height - i);
             }
             continue;
         } else if(height == 1) {
             for(int i = 1; i <= width; i++) {
-                printf("%3d", start++);
+                printf("%3d", start + width - i);
             }
             puts("");
             continue;
         }
-        
         int counter1 = start;
-        int counter2 = start + width;
-        int counter3 = start + 2 * width + height - 3;
+        int counter2 = start + height - 2;
+        int counter3 = start + 2 * height + width - 5;
         int counter4 = start + 2 * (width + height) - 5;
         for (int i = 1; i <= height; i++) {
             for (int j = 1; j <= width; j++) {
                 if (i == 1) {
-                    printf("%3d", counter1++);
-                } else if (j == width) {
-                    printf("%3d", counter2++);
-                } else if (i == height) {
-                    printf("%3d", counter3--);
-                } else if (j == 1) {
                     printf("%3d", counter4--);
+                } else if (j == width) {
+                    printf("%3d", counter3--);
+                } else if (i == height) {
+                    printf("%3d", counter2++);
+                } else if (j == 1) {
+                    printf("%3d", counter1++);
                 } else {
                     printf("%3s", ".");
                 }
